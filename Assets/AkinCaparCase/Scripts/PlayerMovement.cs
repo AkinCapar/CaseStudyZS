@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    GameManager gameManager;
+
+    private Animator myAnim;
     private Vector3 lastMousePosition;
     private Vector3 difference;
     [SerializeField] float sensitivity = 0.25f;
@@ -12,13 +15,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-
+        gameManager = GameManager.instance;
+        myAnim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        Moving();
-        SwerveControl();
+        if (gameManager.startGame == true)
+        {
+            Moving();
+            SwerveControl();
+            myAnim.SetBool("isRunning", true);
+        }
     }
 
     private void Moving()
