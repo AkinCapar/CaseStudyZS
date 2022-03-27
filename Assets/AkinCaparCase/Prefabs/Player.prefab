@@ -939,6 +939,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7770456652023693362}
   - component: {fileID: 6961972985704078007}
+  - component: {fileID: 3483281691224217809}
   - component: {fileID: 6961972985704078006}
   - component: {fileID: 8415517206966951147}
   - component: {fileID: 6274665537219136593}
@@ -979,7 +980,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 0.02
-  moveSpeed: 1.5
+  moveSpeed: 5
+--- !u!114 &3483281691224217809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6961972985704077960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f72dba98e99455f8e2fee33c846951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &6961972985704078006
 Animator:
   serializedVersion: 3
@@ -1171,7 +1184,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: 52dc0cb2b09d64b2e85a988a50b74430, type: 3}
+  - {fileID: 2100000, guid: 8f5eef91bb1174eadb9b58b99d8cee24, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

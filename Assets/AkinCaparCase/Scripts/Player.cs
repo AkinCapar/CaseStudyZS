@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class Player : MonoBehaviour
 
     private void CollideObstacle()
     {
-        //TODO geri hareket et dotween
+        transform.DOMove(-transform.forward * 5, .5f)
+         .SetRelative()
+         .SetEase(Ease.OutCubic);
     }
 }

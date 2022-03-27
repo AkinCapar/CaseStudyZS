@@ -17,6 +17,14 @@ public class Currency : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.instance;
+        IdleAnimation();
+    }
+
+    private void IdleAnimation()
+    {
+        transform.DORotate(new Vector3(0, 200, 0), 1)
+         .SetEase(Ease.Linear)
+         .SetLoops(-1, LoopType.Incremental);
     }
 
     // Update is called once per frame

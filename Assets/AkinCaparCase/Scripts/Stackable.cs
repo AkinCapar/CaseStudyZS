@@ -15,6 +15,7 @@ public class Stackable : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.instance;
+        IdleAnimation();
     }
 
     // Update is called once per frame
@@ -24,6 +25,13 @@ public class Stackable : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, playersPosition.position, moveTowardsSpeed * Time.deltaTime);
         }
+    }
+
+    private void IdleAnimation()
+    {
+        transform.DORotate(new Vector3(0, 200, 0), 1)
+         .SetEase(Ease.Linear)
+         .SetLoops(-1, LoopType.Incremental);
     }
 
     private void OnCollisionEnter(Collision collision)
