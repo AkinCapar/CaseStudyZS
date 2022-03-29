@@ -40,7 +40,6 @@ public class Currency : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            gameManager.wallet += currencyValue;
             GetCollected();
             isCollected = true;
         }
@@ -49,6 +48,7 @@ public class Currency : MonoBehaviour
     private void GetCollected()
     {
         gameObject.GetComponent<Collider>().enabled = false;
+        gameManager.wallet += currencyValue;
         var sequence = DOTween.Sequence();
 
         sequence.Append(

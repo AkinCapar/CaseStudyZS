@@ -6,10 +6,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public int stackedAmount;
+    public float stackedAmount;
+    public float maxStackAmount;
     public int collectedCoinAmount; // collected coin amount each level, so will be set 0 on each level start
     public int wallet;
+    public int stackUpgradeCost;
     public bool startGame = false;
+    public bool gameEnded = false;
 
     private void Awake()
     {
@@ -19,15 +22,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void StackUpgrade()
     {
-        
+        stackedAmount++;
+        wallet -= stackUpgradeCost;
+        stackUpgradeCost = stackUpgradeCost * 2;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

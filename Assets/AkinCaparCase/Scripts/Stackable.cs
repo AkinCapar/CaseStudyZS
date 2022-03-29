@@ -38,7 +38,6 @@ public class Stackable : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameManager.stackedAmount += stackValue;
             GetCollected();
             isCollected = true;
         }
@@ -47,6 +46,7 @@ public class Stackable : MonoBehaviour
     private void GetCollected()
     {
         gameObject.GetComponent<Collider>().enabled = false;
+        Stack();
         var sequence = DOTween.Sequence();
 
         sequence.Append(
@@ -55,5 +55,15 @@ public class Stackable : MonoBehaviour
                      .SetEase(Ease.InOutSine)
             );
         transform.DOScale(0, 2);
+    }
+
+    private void Stack()
+    {
+        if(gameManager.stackedAmount < gameManager.maxStackAmount)
+        {
+            gameManager.stackedAmount += stackValue;
+        }
+
+        else { return; }
     }
 }

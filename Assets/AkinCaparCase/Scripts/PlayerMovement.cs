@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float sensitivity = 0.25f;
     [SerializeField] float moveSpeed = 1f;
     private float xPos;
+    private float animLayerWeight;
 
     private void Start()
     {
@@ -21,11 +22,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        animLayerWeight = gameManager.stackedAmount / gameManager.maxStackAmount;
+
         if (gameManager.startGame == true)
         {
             Moving();
             SwerveControl();
             myAnim.SetBool("isRunning", true);
+            myAnim.SetLayerWeight(1, animLayerWeight);
         }
     }
 

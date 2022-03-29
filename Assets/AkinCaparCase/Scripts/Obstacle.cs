@@ -32,7 +32,10 @@ public class Obstacle : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            gameManager.stackedAmount -= losingStackAmount;
+            if (gameManager.stackedAmount > 0)
+            {
+                gameManager.stackedAmount -= losingStackAmount;
+            }
         }
     }
 }
