@@ -49,6 +49,8 @@ public class Currency : MonoBehaviour
     {
         gameObject.GetComponent<Collider>().enabled = false;
         gameManager.wallet += currencyValue;
+        PlayerPrefs.SetInt("savedWallet", gameManager.wallet);
+        gameManager.collectedCoinAmount += currencyValue;
         var sequence = DOTween.Sequence();
 
         sequence.Append(

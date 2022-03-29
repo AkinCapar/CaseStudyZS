@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/AkinCaparCase/Scenes/SampleScene.unity
+    path: Assets/AkinCaparCase/Scenes/Level 1.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
+    path: Assets/AkinCaparCase/Scenes/Level 2.unity
+    guid: c2c81d7f65a3e4d7d8dcf60765db1e67
+  - enabled: 1
+    path: Assets/AkinCaparCase/Scenes/Level 3.unity
+    guid: e880ee0c5c821407c8c14414a8e4daf8
   m_configObjects: {}

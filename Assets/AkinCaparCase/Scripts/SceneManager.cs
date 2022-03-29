@@ -7,7 +7,7 @@ public class SceneManager : MonoBehaviour
 {
     public static SceneManager instance;
     GameManager gameManager;
-
+    UI ui;
     public int sceneNo;
     [SerializeField] public GameObject startUI;
     [SerializeField] public GameObject inGameUI;
@@ -25,11 +25,15 @@ public class SceneManager : MonoBehaviour
 
     private void Start()
     {
+        ui = UI.instance;
         gameManager = GameManager.instance;
     }
 
     public void ActivateLevelEndUI()
     {
+        ui.currentLevelNo++;
+        PlayerPrefs.SetInt("levelNo", ui.currentLevelNo);
+        gameManager.SwitchToLevelEndCam();
         levelEndUI.SetActive(true);
         DeactivateInGameUI();
     }
@@ -53,7 +57,19 @@ public class SceneManager : MonoBehaviour
 
     public void LoadNextScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneNo + 1);
+        if(sceneNo == 2)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
+
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneNo + 1);
+        }
     }
 
+    public void LoadFirstLevel()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
 }

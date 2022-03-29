@@ -31,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
             myAnim.SetBool("isRunning", true);
             myAnim.SetLayerWeight(1, animLayerWeight);
         }
+
+        if(gameManager.gameEnded == true)
+        {
+            myAnim.SetBool("isDancing", true);
+        }
     }
 
     private void Moving()

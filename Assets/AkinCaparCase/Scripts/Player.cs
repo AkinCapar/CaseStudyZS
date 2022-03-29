@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     GameManager gameManager;
+    SceneManager sceneManager;
     [SerializeField] private Image stackBar;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameManager.instance;
+        sceneManager = SceneManager.instance;
     }
 
     // Update is called once per frame
@@ -26,6 +28,13 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Obstacle")
         {
             CollideObstacle();
+        }
+
+        if(collision.gameObject.tag == "Finish")
+        {
+            gameManager.gameEnded = true;
+            gameManager.startGame = false;
+            sceneManager.ActivateLevelEndUI();
         }
     }
 

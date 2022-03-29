@@ -47,9 +47,11 @@ MonoBehaviour:
   stackedAmount: 0
   maxStackAmount: 6
   collectedCoinAmount: 0
-  wallet: 30
+  wallet: 0
   stackUpgradeCost: 10
   startGame: 0
+  gameEnded: 0
+  levelEndCamera: {fileID: 0}
 --- !u!114 &1966656608735760526
 MonoBehaviour:
   m_ObjectHideFlags: 0

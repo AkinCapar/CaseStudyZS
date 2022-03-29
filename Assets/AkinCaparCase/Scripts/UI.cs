@@ -11,7 +11,7 @@ public class UI : MonoBehaviour
     SceneManager sceneManager;
 
 
-    private int currentLevelNo;
+    public int currentLevelNo;
     private int walletUI;
     [SerializeField] public TextMeshProUGUI startUIWallet;
     [SerializeField] public TextMeshProUGUI inGameUIWallet;
@@ -29,13 +29,18 @@ public class UI : MonoBehaviour
             instance = this;
         }
         sceneManager = SceneManager.instance;
+        currentLevelNo = PlayerPrefs.GetInt("levelNo", 0);
     }
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameManager.instance;
-        currentLevelNo = sceneManager.sceneNo + 1;
+        PlayerPrefs.SetInt("levelNo", currentLevelNo);
+        if(currentLevelNo == 0)
+        {
+            currentLevelNo++;
+        }
     }
 
     // Update is called once per frame
